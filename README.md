@@ -15,6 +15,8 @@ a few examples for shaders in Flutter
 - pixelate: flutter_shaders, texture sampler from https://github.com/jonahwilliams/flutter_shaders/
 - lava:_flame flame engine, KodeLife start example
 
+to run, first add a platform, e.g. `flutter create --platforms=macos .` , then `flutter run`
+
 ## questions
 
 * MediaQuery.of(context).devicePixelRatio outside of flutter_shaders / AnimatedSampler? There, image size needs to be divided by it
