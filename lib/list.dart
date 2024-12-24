@@ -14,7 +14,7 @@ class ShaderList extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<SolidShader>(
                   builder: (_) => const SolidShader(
                     assetKey: 'assets/shaders/solid.frag',
                   ),
@@ -27,7 +27,7 @@ class ShaderList extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<GradientShader>(
                   builder: (_) => const GradientShader(
                     assetKey: 'assets/shaders/gradient.frag',
                   ),
@@ -40,7 +40,7 @@ class ShaderList extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<LaserShader>(
                   builder: (_) => const LaserShader(
                     assetKey: 'assets/shaders/laser.frag',
                   ),
@@ -53,7 +53,7 @@ class ShaderList extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<WaterShader>(
                   builder: (_) => const WaterShader(
                     assetKey: 'assets/shaders/water.frag',
                   ),
@@ -66,7 +66,7 @@ class ShaderList extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<JamShader>(
                   builder: (_) => const JamShader(
                     assetKey: 'assets/shaders/jam.glsl',
                   ),
@@ -79,7 +79,7 @@ class ShaderList extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<StarsShader>(
                   builder: (_) => const StarsShader(
                     assetKey: 'assets/shaders/stars.glsl',
                   ),
@@ -92,7 +92,7 @@ class ShaderList extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<StarsFlameShader>(
                   builder: (_) => const StarsFlameShader(
                     assetKey: 'assets/shaders/stars.glsl',
                   ),
@@ -105,7 +105,7 @@ class ShaderList extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<MarioFlameShader>(
                   builder: (_) => const MarioFlameShader(
                     assetKey: 'assets/shaders/mario.glsl',
                   ),
@@ -118,7 +118,7 @@ class ShaderList extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<SnowShader>(
                   builder: (_) => const SnowShader(
                     assetKey: 'assets/shaders/snow.glsl',
                   ),
@@ -131,7 +131,7 @@ class ShaderList extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<GlitchShader>(
                   builder: (_) => const GlitchShader(
                     assetKey: 'assets/shaders/glitch.glsl',
                   ),
@@ -144,7 +144,7 @@ class ShaderList extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<PixelateShader>(
                   builder: (_) => const PixelateShader(
                     assetKey: 'assets/shaders/pixelation.frag',
                   ),
@@ -157,7 +157,7 @@ class ShaderList extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<LavaLampFlameShader>(
                   builder: (_) => const LavaLampFlameShader(
                     assetKey: 'assets/shaders/lava.frag',
                   ),

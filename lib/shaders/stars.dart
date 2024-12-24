@@ -46,7 +46,7 @@ class _StarsShaderState extends State<StarsShader>
           future: _load(),
           builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
             if (snapshot.hasData) {
-              final shader = snapshot.data!;
+              final FragmentShader shader = snapshot.data! as FragmentShader;
               shader
                 ..setFloat(0, MediaQuery.of(context).size.width)
                 ..setFloat(1, MediaQuery.of(context).size.height);
