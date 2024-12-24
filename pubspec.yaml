@@ -1,0 +1,35 @@
+name: flutter_shader_examples
+description: "Shader examples in Flutter / Flame."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+
+dependencies:
+  flame: ^1.22.0
+  flutter:
+    sdk: flutter
+  flutter_shaders: ^0.1.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/bbtor.jpg
+  shaders:
+    - assets/shaders/glitch.glsl
+    - assets/shaders/gradient.frag
+    - assets/shaders/jam.glsl
+    - assets/shaders/laser.frag
+    - assets/shaders/lava.frag
+    - assets/shaders/mario.glsl
+    - assets/shaders/pixelation.frag
+    - assets/shaders/snow.glsl
+    - assets/shaders/solid.frag
+    - assets/shaders/stars.glsl
+    - assets/shaders/water.frag
