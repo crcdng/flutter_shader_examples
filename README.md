@@ -5,15 +5,15 @@ a few examples for shaders in Flutter
 - solid: solid color
 - gradient: color gradient, FlutterFragCoord().xy
 - laser: dynamic, converted from https://www.shadertoy.com/view/4f2GRR 
-- water: https://www.shadertoy.com/view/Ms2SD1 (Performance problems)
-- jam: https://www.shadertoy.com/view/ldfSW2 
-- stars: mouse, https://www.shadertoy.com/view/XlfGRj (Performance problems, wrong direction)
+- water: https://www.shadertoy.com/view/Ms2SD1, adapted from https://github.com/wolfenrain/flutter_shaders_example/ (Performance problems)
+- jam: https://www.shadertoy.com/view/ldfSW2, adapted from https://github.com/wolfenrain/flutter_shaders_example/ 
+- stars: mouse, https://www.shadertoy.com/view/XlfGRj, adapted from https://github.com/wolfenrain/flutter_shaders_example/ (Performance problems, wrong direction)
 - stars_flame: flame engine, mouse, https://www.shadertoy.com/view/XlfGRj (Performance problems)
 - mario_flame: flame engine https://www.shadertoy.com/view/XtlSD7 
-- snow: Timer, flutter_shaders, texture sampler, https://www.shadertoy.com/view/XlSBz1 (Performance problems)
-- glitch: flutter_shaders, texture sampler (the whole Scaffold is glitched), https://github.com/wolfenrain/flutter_shaders_example/blob/main/shaders/glitch.glsl 
+- snow: Timer, flutter_shaders, texture sampler, https://www.shadertoy.com/view/XlSBz1, adapted from https://github.com/wolfenrain/flutter_shaders_example/ (Performance problems)
+- glitch: flutter_shaders, texture sampler (the whole Scaffold is glitched), adapted from https://github.com/wolfenrain/flutter_shaders_example/
 - pixelate: flutter_shaders, texture sampler from https://github.com/jonahwilliams/flutter_shaders/
-- lava:_flame flame engine, KodeLife start example
+- lava:_flame flame engine, [Hexler KodeLife](https://hexler.net/kodelife) start example
 
 to run, first add a platform, e.g. `flutter create --platforms=macos .` , then `flutter run`
 
