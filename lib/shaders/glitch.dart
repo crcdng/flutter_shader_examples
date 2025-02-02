@@ -46,14 +46,10 @@ class _GlitchShaderState extends State<GlitchShader> {
               ..setFloat(2, shadertime)
               ..setImageSampler(0, image);
 
-            canvas
-              ..save()
-              // ..translate(offset.dx, offset.dy)
-              ..drawRect(
-                Offset.zero & size,
-                Paint()..shader = shader,
-              )
-              ..restore();
+            canvas.drawRect(
+              Offset.zero & size,
+              Paint()..shader = shader,
+            );
           },
           child: child!,
         );
@@ -65,7 +61,7 @@ class _GlitchShaderState extends State<GlitchShader> {
         body: Center(
           child: Text(
             '$count',
-            style: Theme.of(context).textTheme.titleLarge,
+            style: TextStyle(fontSize: 300),
           ),
         ),
         floatingActionButton: Column(
