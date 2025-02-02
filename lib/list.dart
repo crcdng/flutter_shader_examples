@@ -1,5 +1,19 @@
 import 'package:flutter/material.dart';
-import 'shaders/shaders.dart';
+
+import 'shaders/barrel_blur.dart';
+import 'shaders/glitch.dart';
+import 'shaders/gradient.dart';
+import 'shaders/jam.dart';
+import 'shaders/laser.dart';
+import 'shaders/lava_lamp_flame.dart';
+import 'shaders/mario_flame.dart';
+import 'shaders/overscroll.dart';
+import 'shaders/pixelate.dart';
+import 'shaders/snow.dart';
+import 'shaders/solid.dart';
+import 'shaders/stars.dart';
+import 'shaders/stars_flame.dart';
+import 'shaders/water.dart';
 
 class ShaderList extends StatelessWidget {
   const ShaderList({super.key});
@@ -163,7 +177,33 @@ class ShaderList extends StatelessWidget {
                   ),
                 ),
               );
-            })
+            }),
+        ListTile(
+            leading: const Icon(Icons.filter_frames),
+            title: const Text('Barrel Blur'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<BarrelBlurShader>(
+                  builder: (_) => const BarrelBlurShader(
+                    assetKey: 'assets/shaders/barrel_blur.glsl',
+                  ),
+                ),
+              );
+            }),
+        ListTile(
+            leading: const Icon(Icons.filter_frames),
+            title: const Text('Overscroll'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<OverscrollShader>(
+                  builder: (_) => const OverscrollShader(
+                    assetKey: 'assets/shaders/stretch.glsl',
+                  ),
+                ),
+              );
+            }),
       ],
     );
   }
