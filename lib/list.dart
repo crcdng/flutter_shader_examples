@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'shaders/animated_gradient.dart';
 import 'shaders/barrel_blur.dart';
 import 'shaders/glitch.dart';
 import 'shaders/gradient.dart';
@@ -45,6 +46,17 @@ class ShaderList extends StatelessWidget {
                   builder: (_) => const GradientShader(
                     assetKey: 'assets/shaders/gradient.frag',
                   ),
+                ),
+              );
+            }),
+        ListTile(
+            leading: const Icon(Icons.animation),
+            title: const Text('Animated Gradient / ShaderMask'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<AnimatedGradientShader>(
+                  builder: (_) => const AnimatedGradientShader(),
                 ),
               );
             }),
