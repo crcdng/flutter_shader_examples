@@ -1,13 +1,13 @@
 name: flutter_shader_examples
 description: "Shader examples in Flutter / Flame."
 publish_to: 'none'
-version: 0.2.0
+version: 0.3.0
 
 environment:
   sdk: '>=3.2.6 <4.0.0'
 
 dependencies:
-  flame: ^1.28.1
+  flame: ^1.30.1
   flutter:
     sdk: flutter
   flutter_shaders: ^0.1.3
@@ -16,7 +16,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
 
 flutter:
   uses-material-design: true
