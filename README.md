@@ -25,7 +25,8 @@ To run the demo app, you need [Flutter installed](https://docs.flutter.dev/get-s
 ## open issues
 
 * Rewrite snow, which does not need an Animated Sampler 
-* tested on macOs only, needs tests on windows / mobile / web
+* tested on macOS, needs tests on other platforms
+* NEW (0.3.0) compiles on Android (tested on Samsung Galaxy A26 5G). some shaders need screen size fixes. 
 
 ## resources
 
