@@ -1,4 +1,5 @@
 #include <flutter/runtime_effect.glsl>
+precision highp float; // otherwise the shader degrades over time
 uniform vec2 iResolution; 
 uniform float iTime;
 out vec4 fragColor;

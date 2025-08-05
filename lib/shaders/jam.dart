@@ -11,6 +11,7 @@ class JamShader extends StatefulWidget {
 }
 
 class _JamShaderState extends State<JamShader> with TickerProviderStateMixin {
+  late FragmentShader _shader;
   late final AnimationController _controller = AnimationController(
     duration: const Duration(seconds: 10),
     vsync: this,
@@ -18,7 +19,8 @@ class _JamShaderState extends State<JamShader> with TickerProviderStateMixin {
 
   Future<FragmentShader> _load() async {
     FragmentProgram program = await FragmentProgram.fromAsset(widget.assetKey);
-    return program.fragmentShader();
+    _shader = program.fragmentShader();
+    return _shader;
   }
 
   int _startTime = 0;
@@ -27,6 +29,7 @@ class _JamShaderState extends State<JamShader> with TickerProviderStateMixin {
 
   @override
   void dispose() {
+    _shader.dispose();
     _controller.dispose();
     super.dispose();
   }
@@ -73,6 +76,7 @@ class JamShaderPainter extends CustomPainter {
     final paint = Paint()..shader = shader;
     canvas.translate(size.width, size.height);
     canvas.rotate(math.pi);
+    // TODO fix screen duplication on Android
     canvas.drawRect(
       Rect.fromLTWH(0, 0, size.width, size.height),
       paint,

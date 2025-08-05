@@ -4,7 +4,6 @@
 
 uniform float iTime;       // Time in seconds since load
 uniform vec2 iResolution;  // Canvas size (width,height)
-uniform vec2 iMouse;       // mouse position in screen pixels
 
 out vec4 fragColor; // output colour for Flutter, like gl_FragColor
 
@@ -195,7 +194,7 @@ vec3 getPixel(in vec2 coord, float time) {
 }
 
 void main() {
-    float time = iTime * 0.3;
+    float time = iTime * 1.2;
 
     vec3 color = getPixel(gl_FragCoord.xy, time);
 	fragColor = vec4(pow(color,vec3(0.65)), 1.0);

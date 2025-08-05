@@ -1,6 +1,6 @@
 #version 460 core
 
-precision mediump float;
+precision lowp float;
 
 uniform vec4 uColor;
 

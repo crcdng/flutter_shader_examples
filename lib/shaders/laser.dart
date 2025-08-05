@@ -12,6 +12,7 @@ class LaserShader extends StatefulWidget {
 
 class _LaserShaderState extends State<LaserShader>
     with TickerProviderStateMixin {
+  late FragmentShader _shader;
   late final AnimationController _controller = AnimationController(
     duration: const Duration(seconds: 1),
     vsync: this,
@@ -19,7 +20,8 @@ class _LaserShaderState extends State<LaserShader>
 
   Future<FragmentShader> _load() async {
     FragmentProgram program = await FragmentProgram.fromAsset(widget.assetKey);
-    return program.fragmentShader();
+    _shader = program.fragmentShader();
+    return _shader;
   }
 
   int _startTime = 0;
@@ -28,6 +30,7 @@ class _LaserShaderState extends State<LaserShader>
 
   @override
   void dispose() {
+    _shader.dispose();
     _controller.dispose();
     super.dispose();
   }

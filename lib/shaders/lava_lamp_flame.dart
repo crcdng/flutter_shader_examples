@@ -51,6 +51,11 @@ class LavaGame extends Game with MouseMovementDetector {
   }
 
   @override
+  onRemove() {
+    shader.dispose();
+  }
+
+  @override
   void render(Canvas canvas) {
     shader
       ..setFloat(0, size.x)

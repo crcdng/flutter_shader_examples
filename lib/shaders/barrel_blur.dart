@@ -22,7 +22,7 @@ class _BarrelBlurShaderState extends State<BarrelBlurShader> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Barrel Blur')),
+      appBar: AppBar(title: Text('Barrel Blur - slider')),
       body: Stack(
         fit: StackFit.expand,
         children: [

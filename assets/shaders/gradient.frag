@@ -1,6 +1,8 @@
 #version 460 core
 #include <flutter/runtime_effect.glsl> 
 
+precision lowp float;
+
 uniform vec2 u_surfaceSize;
 out vec4 fragColor;
 vec3 flutterBlue = vec3(5, 83, 177) / 255;

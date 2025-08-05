@@ -2,13 +2,27 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class GradientShader extends StatelessWidget {
+class GradientShader extends StatefulWidget {
   const GradientShader({super.key, required this.assetKey});
   final String assetKey;
 
+  @override
+  State<GradientShader> createState() => _GradientShaderState();
+}
+
+class _GradientShaderState extends State<GradientShader> {
+  late FragmentShader _shader;
+
   Future<FragmentShader> _load() async {
-    FragmentProgram program = await FragmentProgram.fromAsset(assetKey);
-    return program.fragmentShader();
+    FragmentProgram program = await FragmentProgram.fromAsset(widget.assetKey);
+    _shader = program.fragmentShader();
+    return _shader;
+  }
+
+  @override
+  void dispose() {
+    _shader.dispose();
+    super.dispose();
   }
 
   @override
@@ -24,7 +38,7 @@ class GradientShader extends StatelessWidget {
               final shader = snapshot.data!;
               return CustomPaint(
                 size: MediaQuery.sizeOf(context),
-                painter: ExampleShaderPainter(shader: shader),
+                painter: GradientShaderPainter(shader: shader),
               );
             } else {
               return const CircularProgressIndicator();
@@ -34,8 +48,8 @@ class GradientShader extends StatelessWidget {
   }
 }
 
-class ExampleShaderPainter extends CustomPainter {
-  ExampleShaderPainter({required this.shader}); // 6
+class GradientShaderPainter extends CustomPainter {
+  GradientShaderPainter({required this.shader}); // 6
   final FragmentShader shader;
 
   @override

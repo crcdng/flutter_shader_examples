@@ -2,13 +2,27 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class SolidShader extends StatelessWidget {
+class SolidShader extends StatefulWidget {
   const SolidShader({super.key, required this.assetKey});
   final String assetKey;
 
+  @override
+  State<SolidShader> createState() => _SolidShaderState();
+}
+
+class _SolidShaderState extends State<SolidShader> {
+  late FragmentShader _shader;
+
   Future<FragmentShader> _load() async {
-    FragmentProgram program = await FragmentProgram.fromAsset(assetKey);
-    return program.fragmentShader();
+    FragmentProgram program = await FragmentProgram.fromAsset(widget.assetKey);
+    _shader = program.fragmentShader();
+    return _shader;
+  }
+
+  @override
+  void dispose() {
+    _shader.dispose();
+    super.dispose();
   }
 
   @override

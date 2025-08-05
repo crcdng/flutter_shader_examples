@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:ui';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
@@ -12,6 +13,8 @@ class WaterShader extends StatefulWidget {
 
 class _WaterShaderState extends State<WaterShader>
     with TickerProviderStateMixin {
+  late FragmentShader _shader;
+
   late final AnimationController _controller = AnimationController(
     duration: const Duration(seconds: 10),
     vsync: this,
@@ -19,7 +22,8 @@ class _WaterShaderState extends State<WaterShader>
 
   Future<FragmentShader> _load() async {
     FragmentProgram program = await FragmentProgram.fromAsset(widget.assetKey);
-    return program.fragmentShader();
+    _shader = program.fragmentShader();
+    return _shader;
   }
 
   int _startTime = 0;
@@ -28,6 +32,7 @@ class _WaterShaderState extends State<WaterShader>
 
   @override
   void dispose() {
+    _shader.dispose();
     _controller.dispose();
     super.dispose();
   }
@@ -66,14 +71,20 @@ class _WaterShaderState extends State<WaterShader>
 }
 
 class WaterShaderPainter extends CustomPainter {
-  WaterShaderPainter({required this.shader}); // 6
+  WaterShaderPainter({required this.shader});
   final FragmentShader shader;
 
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()..shader = shader;
-    canvas.translate(size.width, size.height);
-    canvas.rotate(math.pi);
+
+    if (!Platform.isAndroid) {
+      canvas.translate(size.width, size.height);
+      canvas.rotate(math.pi);
+    } else {
+      // TODO fix wrong orientation on Android
+    }
+
     canvas.drawRect(
       Rect.fromLTWH(0, 0, size.width, size.height),
       paint,

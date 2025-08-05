@@ -52,6 +52,11 @@ class StarsGame extends Game with MouseMovementDetector {
   }
 
   @override
+  onRemove() {
+    shader.dispose();
+  }
+
+  @override
   void onMouseMove(PointerHoverInfo info) {
     mousePosition.setFrom(info.eventPosition.widget);
     super.onMouseMove(info);

@@ -1,7 +1,7 @@
 name: flutter_shader_examples
 description: "Shader examples in Flutter / Flame."
 publish_to: 'none'
-version: 0.3.0
+version: 0.3.1
 
 environment:
   sdk: '>=3.2.6 <4.0.0'

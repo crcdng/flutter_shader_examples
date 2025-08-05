@@ -12,7 +12,7 @@ class OverscrollShader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Overscroll / Top Drag')),
+      appBar: AppBar(title: Text('Overscroll - drag down')),
       body: ApplyShader(
         assetKey: assetKey,
         child: Center(
