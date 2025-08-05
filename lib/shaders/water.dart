@@ -78,12 +78,8 @@ class WaterShaderPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final paint = Paint()..shader = shader;
 
-    if (!Platform.isAndroid) {
-      canvas.translate(size.width, size.height);
-      canvas.rotate(math.pi);
-    } else {
-      // TODO fix wrong orientation on Android
-    }
+    canvas.translate(size.width, size.height);
+    canvas.rotate(math.pi);
 
     canvas.drawRect(
       Rect.fromLTWH(0, 0, size.width, size.height),

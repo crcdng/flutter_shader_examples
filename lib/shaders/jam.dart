@@ -76,7 +76,6 @@ class JamShaderPainter extends CustomPainter {
     final paint = Paint()..shader = shader;
     canvas.translate(size.width, size.height);
     canvas.rotate(math.pi);
-    // TODO fix screen duplication on Android
     canvas.drawRect(
       Rect.fromLTWH(0, 0, size.width, size.height),
       paint,
