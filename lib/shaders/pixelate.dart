@@ -19,32 +19,34 @@ class _PixelateShaderState extends State<PixelateShader> {
       appBar: AppBar(
         title: const Text('Pixelate'),
       ),
-      body: ShaderBuilder(
-        assetKey: widget.assetKey,
-        (context, shader, child) {
-          return AnimatedSampler(
-            (image, size, canvas) {
-              final devicePixelRatio = MediaQuery.of(context).devicePixelRatio;
-              shader
-                ..setFloat(0, pixelsX.toDouble())
-                ..setFloat(1, pixelsY.toDouble())
-                ..setFloat(2, image.width.toDouble() / devicePixelRatio)
-                ..setFloat(3, image.height.toDouble() / devicePixelRatio)
-                ..setImageSampler(0, image);
+      body: Center(
+        child: ShaderBuilder(
+          assetKey: widget.assetKey,
+          (context, shader, child) {
+            return AnimatedSampler(
+              (image, size, canvas) {
+                final devicePixelRatio =
+                    MediaQuery.of(context).devicePixelRatio;
+                shader
+                  ..setFloat(0, pixelsX.toDouble())
+                  ..setFloat(1, pixelsY.toDouble())
+                  ..setFloat(2, image.width.toDouble() / devicePixelRatio)
+                  ..setFloat(3, image.height.toDouble() / devicePixelRatio)
+                  ..setImageSampler(0, image);
 
-              canvas
-                ..save()
-                ..drawRect(
-                  Offset.zero & size,
-                  // Rect.fromLTWH(0, 0, size.width, size.height),
-                  Paint()..shader = shader,
-                )
-                ..restore();
-            },
-            child: child!,
-          );
-        },
-        child: const Image(image: AssetImage('assets/images/bbtor.jpg')),
+                canvas
+                  ..save()
+                  ..drawRect(
+                    Offset.zero & size,
+                    Paint()..shader = shader,
+                  )
+                  ..restore();
+              },
+              child: child!,
+            );
+          },
+          child: const Image(image: AssetImage('assets/images/bbtor.jpg')),
+        ),
       ),
     );
   }
