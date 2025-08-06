@@ -1,11 +1,12 @@
+#version 460 core
 precision highp float;
+
+#include <flutter/runtime_effect.glsl> // provides FlutterFragCoord()
 
 uniform vec2 iResolution;
 uniform float iTime;
 uniform sampler2D iChannel0;
 out vec4 fragColor;
-
-// Ported from https://www.shadertoy.com/view/XlSBz1 to Flutter
 
 #define time (iTime / 2.0)
 #define PI2 6.28
@@ -89,7 +90,7 @@ vec4 snow(vec2 p) {
 }
 
 void main() {
-    vec2 uv = gl_FragCoord.xy / iResolution.xy;
+    vec2 uv = FlutterFragCoord().xy / iResolution.xy;
   
     vec4 col = texture(iChannel0, uv);
   

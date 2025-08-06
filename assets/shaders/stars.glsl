@@ -1,11 +1,12 @@
+#version 460 core
 precision highp float;
+
+#include <flutter/runtime_effect.glsl> // provides FlutterFragCoord()
 
 uniform vec2 iResolution;
 uniform float iTime;
 uniform vec2 iMouse;
 out vec4 fragColor;
-
-// Ported from https://www.shadertoy.com/view/XlfGRj to Flutter
 
 #define iterations 17
 #define formuparam 0.53
@@ -24,7 +25,7 @@ out vec4 fragColor;
 
 void main() {
 	// Get coords and direction.
-	vec2 uv = gl_FragCoord.xy / iResolution.xy - 0.5;
+	vec2 uv = FlutterFragCoord().xy / iResolution.xy - 0.5;
 	uv.y *= iResolution.y / iResolution.x;
 	vec3 dir = vec3(uv * zoom, 1.0);
 	float time= iTime * speed + 0.25;

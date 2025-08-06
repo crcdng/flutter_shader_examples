@@ -1,6 +1,7 @@
-#include <flutter/runtime_effect.glsl>
+#version 460 core
+precision highp float;
 
-// ref: https://www.shadertoy.com/view/Ms2SD1
+#include <flutter/runtime_effect.glsl> // provides FlutterFragCoord()
 
 uniform float iTime;       // Time in seconds since load
 uniform vec2 iResolution;  // Canvas size (width,height)
@@ -196,6 +197,6 @@ vec3 getPixel(in vec2 coord, float time) {
 void main() {
     float time = iTime * 1.2;
 
-    vec3 color = getPixel(gl_FragCoord.xy, time);
+    vec3 color = getPixel(FlutterFragCoord().xy, time);
 	fragColor = vec4(pow(color,vec3(0.65)), 1.0);
 }

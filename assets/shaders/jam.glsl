@@ -1,13 +1,12 @@
+#version 460 core
+
+precision mediump float;
+
+#include <flutter/runtime_effect.glsl> // provides FlutterFragCoord()
+
 uniform vec2 iResolution;
 uniform float iTime;
 out vec4 fragColor;
-
-// Ported from https://www.shadertoy.com/view/ldfSW2 to Flutter
-
-// srtuss, 2014
-//
-// I started making these visuals for Dave's "Tropical Beeper" track, but then the
-// soundshader-feature was added. :P
 
 vec2 rotate(vec2 p, float a)
 {
@@ -209,7 +208,7 @@ vec3 pixel(vec2 p, float time, float ct)
 }
 
 void main() { 
-	vec2 uv = gl_FragCoord.xy / iResolution.xy;
+	vec2 uv = FlutterFragCoord().xy / iResolution.xy;
 	uv = 2.0 * uv - 1.0;
 	uv.x *= iResolution.x / iResolution.y;
 	vec3 col = vec3(0.0);

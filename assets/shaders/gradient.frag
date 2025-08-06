@@ -1,5 +1,5 @@
 #version 460 core
-#include <flutter/runtime_effect.glsl> 
+#include <flutter/runtime_effect.glsl> // provides FlutterFragCoord()
 
 precision lowp float;
 

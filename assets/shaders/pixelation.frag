@@ -11,7 +11,7 @@ uniform vec2 uPixels;
 uniform vec2 uSize;
 uniform sampler2D uTexture;
 
-// NOTE does not compile on Android
+// NOTE not required and does not compile on Android
 // layout(location = 0) uniform vec2 uPixels;
 // layout(location = 1) uniform vec2 uSize;
 // layout(location = 2) uniform sampler2D uTexture;

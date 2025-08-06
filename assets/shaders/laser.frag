@@ -1,5 +1,8 @@
-#include <flutter/runtime_effect.glsl>
+#version 460 core
 precision highp float; // otherwise the shader degrades over time
+
+#include <flutter/runtime_effect.glsl> // provides FlutterFragCoord()
+
 uniform vec2 iResolution; 
 uniform float iTime;
 out vec4 fragColor;

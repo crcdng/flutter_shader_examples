@@ -1,4 +1,9 @@
 
+#version 460 core
+precision highp float;
+
+#include <flutter/runtime_effect.glsl> // provides FlutterFragCoord()
+
 uniform vec2 iResolution;
 uniform float iTime;
 out vec4 fragColor;
@@ -1407,8 +1412,8 @@ void main()
     float time			= iTime;
     float screenWidth	= floor( iResolution.x * resRcp );
     float screenHeight	= floor( iResolution.y * resRcp );
-    float pixelX 		= floor( gl_FragCoord.x * resRcp );
-    float pixelY 		= floor( gl_FragCoord.y * resRcp );
+    float pixelX 		= floor( FlutterFragCoord().x * resRcp );
+    float pixelY 		= floor( FlutterFragCoord().y * resRcp );
 
     vec3 color = RGB( 92, 148, 252 );
  	DrawGame( color, time, pixelX, pixelY, screenWidth, screenHeight );
@@ -1419,7 +1424,7 @@ void main()
 
     
     // CRT effects (curvature, vignette, scanlines and CRT grille)
-    vec2 uv    = gl_FragCoord.xy / iResolution.xy;
+    vec2 uv    = FlutterFragCoord().xy / iResolution.xy;
     vec2 crtUV = CRTCurveUV( uv );
     if ( crtUV.x < 0.0 || crtUV.x > 1.0 || crtUV.y < 0.0 || crtUV.y > 1.0 )
     {

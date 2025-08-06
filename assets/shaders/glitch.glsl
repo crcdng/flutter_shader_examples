@@ -1,3 +1,7 @@
+#version 460 core
+
+#include <flutter/runtime_effect.glsl> // provides FlutterFragCoord()
+
 uniform vec2 iResolution;
 uniform float iTime;
 uniform sampler2D iChannel0;
@@ -88,7 +92,7 @@ float staticV(vec2 uv) {
 void main()
 {
 
-	vec2 uv =  gl_FragCoord.xy/iResolution.xy;
+	vec2 uv =  FlutterFragCoord().xy/iResolution.xy;
 	
 	float jerkOffset = (1.0-step(snoise(vec2(iTime*1.3,5.0)),0.8))*0.05;
 	
